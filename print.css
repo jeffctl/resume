@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+.page {
+  padding: 0;
+}
+
+.topbar {
+  display: none;
+}
+
+.content {
+  padding: 0;
+}
+
+.resume {
+  background: #ffffff !important;
+  border: none;
+  box-shadow: none;
+  padding: 0.5in 0.65in;
+  font-size: 11pt;
+}

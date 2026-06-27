@@ -1,0 +1,150 @@
+:root {
+  --bg: #05080d;
+  --bg-elevated: #0f141c;
+  --fg: #f4f6fb;
+  --muted: #a3b0c2;
+  --accent: #4f8cff;
+  --border-subtle: #1c2432;
+  --font-main: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  --font-heading: 'Georgia', 'Times New Roman', serif;
+}
+
+:root.light {
+  --bg: #f5f5f7;
+  --bg-elevated: #ffffff;
+  --fg: #111218;
+  --muted: #4b5565;
+  --accent: #2457c6;
+  --border-subtle: #e0e4ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-main);
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.topbar {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1.5rem 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.toggle {
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 0.15rem 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.content {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1.5rem 1.5rem;
+}
+
+.resume {
+  background: var(--bg-elevated);
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  padding: 1.75rem 1.75rem 1.9rem;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+}
+
+.loading, .error {
+  text-align: center;
+  color: var(--muted);
+}
+
+.resume h1, .resume h2, .resume h3, .resume h4 {
+  font-family: var(--font-heading);
+  margin-top: 0;
+}
+
+.resume h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.1rem;
+}
+
+.resume p {
+  margin: 0.35rem 0;
+  line-height: 1.45;
+}
+
+.resume a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.resume a:hover {
+  text-decoration: underline;
+}
+
+.resume hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 0.9rem 0 0.7rem;
+}
+
+.resume h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-top: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.resume h3 {
+  font-size: 1rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.1rem;
+}
+
+.resume ul {
+  margin: 0.25rem 0 0.6rem 1.1rem;
+  padding-left: 0.8rem;
+}
+
+.resume li {
+  margin: 0.18rem 0;
+}
+
+.resume strong {
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .resume {
+    padding: 1.25rem 1.1rem 1.4rem;
+    border-radius: 0.75rem;
+  }
+  .topbar {
+    padding: 0 1rem 0.6rem;
+  }
+  .content {
+    padding: 0 1rem 1.2rem;
+  }
+}

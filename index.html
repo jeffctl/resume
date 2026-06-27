@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jeff Morris - Resume</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="print.css" media="print" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="topbar-left">Jeff Morris - Resume</div>
+      <button id="themeToggle" class="toggle">Dark</button>
+    </header>
+    <main id="content" class="content">
+      <div class="loading">Loading resume...</div>
+    </main>
+  </div>
+
+  <script>
+    // theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const stored = localStorage.getItem('jeff-theme');
+    if (stored === 'light') {
+      document.documentElement.classList.add('light');
+      toggle.textContent = 'Light';
+    }
+    toggle.addEventListener('click', () => {
+      const isLight = document.documentElement.classList.toggle('light');
+      toggle.textContent = isLight ? 'Light' : 'Dark';
+      localStorage.setItem('jeff-theme', isLight ? 'light' : 'dark');
+    });
+
+    // load resume.md and render
+    fetch('resume.md')
+      .then(r => r.text())
+      .then(txt => {
+        const html = marked.parse(txt);
+        const c = document.getElementById('content');
+        c.innerHTML = '<article class="resume">' + html + '</article>';
+      })
+      .catch(err => {
+        const c = document.getElementById('content');
+        c.innerHTML = '<div class="error">Failed to load resume.</div>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
